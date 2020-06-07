@@ -1,83 +1,11 @@
-@(form: play.api.data.Form[Mocker])(implicit messages: Messages)
+@()(implicit messages: Messages)
 
 @main {
 
 @partials.presentation()
 
-<form class="form-horizontal" action="/" method="post" id="new-mocky-form">
+<h1>Mocky is currently down for maintenance</h1>
 
-    @if(form.hasErrors) {
-        <div class="alert alert-error">@Messages("error.invalidForm")</div>
-    }
-
-    <div class="alert" id="feedback">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <p></p> <!--Do not remove...-->
-    </div>
-
-    <div class="alert alert-info confidential-alert">
-        @Html(Messages("news1"))
-    </div>
-    <div class="alert alert-info confidential-alert">
-        @Html(Messages("news2"))
-    </div>
-
-    <fieldset>
-        <legend>@Messages("form.legend")</legend>
-
-        <div class="control-group">
-            <label class="control-label" for="statusCode">@Messages("form.code")</label>
-            <div class="controls">
-                <input type="text" id="statusCode" name="statuscode"  />
-            </div>
-        </div>
-        <div class="control-group hide" id="location-block">
-            <label class="control-label" for="location">@Messages("form.location")</label>
-            <div class="controls">
-                <input type="text" id="location" name="location" placeholder="Redirect URI" class="input-xlarge" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="contentType">@Messages("form.contentType")</label>
-            <div class="controls">
-                <input type="text" id="contentType" name="contenttype" />
-                &nbsp;
-                <input type="text" id="charset" name="charset" />
-            </div>
-        </div>
-
-        <div class="advanced-block hide">
-            <div class="control-group">
-                <label class="control-label" for="editor">@Messages("form.customHeaders")</label>
-                <div class="controls" id="advanced-block-inner">
-                    <p class="clone">
-                        <input class="span3" type="text" name="headerNames[]"> :
-                        <input class="span4" type="text" name="headerValues[]">
-                        <a class="btn btn-success btn-mini btn-add-header"><i class="icon icon-plus icon-white"></i></a>
-                    </p>
-                </div>
-                <div class="controls">
-                    <span class="help-block">@Messages("eg") ETag, If-None-Match, Expires, Last-Modified, Server, X-Cache, Cache-Control,<br /> X-Frame-Options, Server, Set-Cookie, X-UA-Compatible...</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="editor">@Messages("form.body")</label>
-            <div class="controls">
-                <div id="editor"></div>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <div class="controls">
-                <button type="submit" class="btn btn-primary" id="send-btn">@Messages("btn.generate")</button>
-                <a href="#" class="btn btn-advanced-mode">@Messages("btn.advanced")</a>
-            </div>
-        </div>
-    </fieldset>
-</form>
-
-@partials.tips()
+<p>We expect to be back in a few hours. During this time our mocks are still accessible. Thanks for your patience</p>
 
 }

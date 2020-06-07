@@ -24,7 +24,7 @@ class Application @Inject()(cc: ControllerComponents, dispatcher: RepositoryDisp
     val isHttps = req.headers.get(HeaderNames.X_FORWARDED_PROTO).contains("https")
 
     if (isHttps)
-      Ok(views.html.index(Mocker.formMocker))
+      Ok(views.html.index())
     else
       Redirect("https://www.mocky.io", 301)
   }
@@ -75,7 +75,7 @@ class Application @Inject()(cc: ControllerComponents, dispatcher: RepositoryDisp
 
   def save = Action.async { implicit request =>
     Mocker.formMocker.bindFromRequest().fold(
-      error => Future.successful(BadRequest(views.html.index(error))),
+      error => Future.successful(BadRequest(views.html.index())),
       mock =>
         dispatcher.default.save(mock).map(id =>
           Ok(Json.obj("url" -> routes.Application.get(id, dispatcher.currentVersion).absoluteURL(false)))
